@@ -1,6 +1,8 @@
 package ca.uwaterloo.dsg;
 
+import org.json.simple.DeserializationException;
 import org.json.simple.JsonObject;
+import org.json.simple.Jsoner;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -55,16 +57,13 @@ public class RDD implements Comparable<RDD> {
         String value = (String) rddJson.get("Scope");
 
         if (value != null) {
-            value = value.substring(1, value.length()-1);           //remove curly brackets
-            String[] keyValuePairs = value.split(",");              //split the string to creat key-value pairs
-            for(String pair : keyValuePairs)                        //iterate over the pairs
-            {
-                String[] entry = pair.split(":");                   //split the pairs to get key and value
-                if ("\"name\"".equals(entry[0])) {
-                    callsite += " - "+entry[1].substring(1, entry[1].length()-1);
-                    break;
+            try {
+                JsonObject scopeJson = (JsonObject) Jsoner.deserialize(value);
+                if (scopeJson.containsKey("name")) {
+                    callsite += " - " + scopeJson.get("name");
                 }
-            }
+            } catch (final DeserializationException caught) {}
+
         }
 
         JsonObject storageLevelJson = (JsonObject) rddJson.get("Storage Level");
