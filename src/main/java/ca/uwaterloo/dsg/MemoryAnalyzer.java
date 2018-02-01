@@ -62,8 +62,7 @@ public class MemoryAnalyzer {
                 JsonObject taskMetricsJson = (JsonObject) event.get("Task Metrics");
                 JsonArray updatedBlocks = (JsonArray) taskMetricsJson.get("Updated Blocks");
 
-                JsonUtil util = JsonUtil.getInstance();
-                List<JsonObject> sortedUpdatedBlocks = util.sortJsonArray(updatedBlocks, "Block ID");
+                List<JsonObject> sortedUpdatedBlocks = JsonUtil.sortJsonArray(updatedBlocks, "Block ID");
 
                 for (JsonObject updatedBlock : sortedUpdatedBlocks) {
                     String blockId = (String) updatedBlock.get("Block ID");

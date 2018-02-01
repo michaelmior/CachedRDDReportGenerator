@@ -31,8 +31,7 @@ public class Stage {
 
     public void initializeRDD(JsonArray RDDInfos){
         // link RDDs and initialized their status
-        JsonUtil util = JsonUtil.getInstance();
-        List<JsonObject> sortedRDDInfos = util.sortJsonArray(RDDInfos, "RDD ID");
+        List<JsonObject> sortedRDDInfos = JsonUtil.sortJsonArray(RDDInfos, "RDD ID");
 
         // in order to correctly update RDD usage information, iterating twice is necessary
         // 1) initializing RDDs in this stage

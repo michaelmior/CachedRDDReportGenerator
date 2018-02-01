@@ -19,8 +19,7 @@ public class Job {
 
         this.stages = new HashMap<>();
         JsonArray stagesJson = (JsonArray) jobJson.get("Stage Infos");
-        JsonUtil util = JsonUtil.getInstance();
-        List<JsonObject> sortedStageJson = util.sortJsonArray(stagesJson, "Stage ID");
+        List<JsonObject> sortedStageJson = JsonUtil.sortJsonArray(stagesJson, "Stage ID");
 
         for (JsonObject stageJson : sortedStageJson) {
             Stage stage = new Stage(stageJson, RDDs);
