@@ -98,7 +98,7 @@ public class MemoryAnalyzer {
                 }
 
     //          To check when rdd gets unpersisted
-                System.out.println(" Unpersist is called on RDD " + Integer.valueOf(rddId));
+                System.err.println(" Unpersist is called on RDD " + Integer.valueOf(rddId));
                 break;
 
             case "SparkListenerJobEnd":
@@ -120,34 +120,29 @@ public class MemoryAnalyzer {
         for (Map.Entry<Integer, Job> entry : jobs.entrySet()) {
             entry.getValue().printCacheStatus();
         }
-        System.out.println();
-
-        System.out.println("==============================");
     }
 
     public void printRDDUsageReport() {
 
-        System.out.println("======== RDD USAGE =======");
-        System.out.println();
-        System.out.println("// index 0 - RDD id");
-        System.out.println("// index 1 - first use of cached RDD");
-        System.out.println("// index 2 - was cached when re-used");
-        System.out.println("// index 3 - was partially cached when re-used");
-        System.out.println("// index 4 - not cached when reused, because app didn't cache (includes RDD not annotated)");
-        System.out.println("// index 5 - not cached when reused, because had been evicted before re-use");
-        System.out.println("// index 6 - not cached when reused, because had been unpersisted before re-use");
-        System.out.println("// index 7 - cached, but not used because stage descendant was cached");
-        System.out.println("// index 8 - not cached, but OK because stage descendant was cached");
-        System.out.println();
+        System.err.println("======== RDD USAGE =======");
+        System.err.println();
+        System.err.println("// index 0 - RDD id");
+        System.err.println("// index 1 - first use of cached RDD");
+        System.err.println("// index 2 - was cached when re-used");
+        System.err.println("// index 3 - was partially cached when re-used");
+        System.err.println("// index 4 - not cached when reused, because app didn't cache (includes RDD not annotated)");
+        System.err.println("// index 5 - not cached when reused, because had been evicted before re-use");
+        System.err.println("// index 6 - not cached when reused, because had been unpersisted before re-use");
+        System.err.println("// index 7 - cached, but not used because stage descendant was cached");
+        System.err.println("// index 8 - not cached, but OK because stage descendant was cached");
+        System.err.println();
 
-        System.out.println("Number of RDD : " + Integer.toString(RDDs.size()));
-        System.out.println();
+        System.err.println("Number of RDD : " + Integer.toString(RDDs.size()));
+        System.err.println();
 
         for (Map.Entry<Integer, RDD> entry : RDDs.entrySet()) {
             entry.getValue().printUsage();
         }
-        System.out.println();
-        System.out.println("==============================");
     }
 
     public void runAnalysis(String fileName) {

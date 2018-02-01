@@ -306,12 +306,13 @@ public class RDD implements Comparable<RDD> {
     }
 
     public void printUsage() {
-        StringBuffer sb = new StringBuffer(Integer.toString(rddId) + " ");
+        StringBuffer sb = new StringBuffer(Integer.toString(rddId) + ",");
 
         for (int i : usageInfo) {
             sb.append(i);
-            sb.append(" ");
+            sb.append(",");
         }
+        sb.deleteCharAt(sb.length() - 1);
 
         System.out.println(sb.toString());
     }
