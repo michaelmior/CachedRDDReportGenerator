@@ -1,8 +1,11 @@
 # CachedRDDReportGenerator
 Fall '17, University of Waterloo.
 
-## Author
+[![Build Status](https://travis-ci.org/michaelmior/CachedRDDReportGenerator.svg?branch=master)](https://travis-ci.org/michaelmior/CachedRDDReportGenerator)
+
+## Authors
 Jaejun (Brandon) Lee, j474lee@edu.uwaterloo.ca
+Michael Mior, mmior@uwaterloo.ca
 
 ## Background
 In order to take advatnage of full functionality of Spark, maximizing use of cached RDD is very important
