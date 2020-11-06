@@ -12,7 +12,11 @@ buildscript {
     }
 }
 
-apply plugin: 'de.undercouch.download'
+plugins {
+    id 'de.undercouch.download'
+    id 'com.github.johnrengelman.shadow'
+    id 'java'
+}
 
 import de.undercouch.gradle.tasks.download.Download
 
@@ -21,8 +25,6 @@ task downloadTestFile(type: Download) {
     dest '/tmp/wiki_test.html'
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
-apply plugin: 'java'
 sourceCompatibility = 1.8
 
 downloadTestFile.dependsOn testClasses
