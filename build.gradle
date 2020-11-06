@@ -7,21 +7,19 @@ buildscript {
 }
 
 plugins {
-    id 'de.undercouch.download' version '3.3.0'
-    id 'com.github.johnrengelman.shadow' version '1.2.4'
+    id 'de.undercouch.download' version '4.1.1'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
     id 'java'
 }
 
-import de.undercouch.gradle.tasks.download.Download
-
-task downloadTestFile(type: Download) {
+task downloadFile(type: Download) {
     src 'https://dumps.wikimedia.org/other/static_html_dumps/December_2006/en/html.lst'
     dest '/tmp/wiki_test.html'
 }
 
 sourceCompatibility = 1.8
 
-downloadTestFile.dependsOn testClasses
+downloadFile.dependsOn testClasses
 
 repositories {
     mavenCentral()
