@@ -1,7 +1,7 @@
 # `CachedRDDReportGenerator`
 Fall '17, University of Waterloo.
 
-[![Build Status](https://travis-ci.org/michaelmior/CachedRDDReportGenerator.svg?branch=master)](https://travis-ci.org/michaelmior/CachedRDDReportGenerator)
+[![Build Status](https://travis-ci.com/michaelmior/CachedRDDReportGenerator.svg?branch=master)](https://travis-ci.com/michaelmior/CachedRDDReportGenerator)
 
 ## Authors
 * Jaejun (Brandon) Lee, j474lee@edu.uwaterloo.ca
